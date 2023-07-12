@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 649089344}
   - component: {fileID: 649089343}
   - component: {fileID: 649089345}
+  - component: {fileID: 649089346}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -193,6 +194,20 @@ MonoBehaviour:
   NetworkedBehaviours: []
   SimulationBehaviours:
   - {fileID: 649089343}
+  - {fileID: 649089346}
+--- !u!114 &649089346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649089342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ef502010e3482f99b5912a017dd744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinPrefab: {fileID: 4565172792281438746, guid: f9a91e794d028b949b41667b5974785f, type: 3}
 --- !u!1 &680233475
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Fusion;
+﻿using Fusion;
 using TMPro;
 using UnityEngine;
 

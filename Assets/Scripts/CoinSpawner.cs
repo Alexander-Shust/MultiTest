@@ -12,5 +12,6 @@ public class CoinSpawner : SimulationBehaviour, ISpawned
             return;
         }
         Debug.LogWarning("Spawn coin");
+        Runner.Spawn(_coinPrefab, new Vector3(2, 2), Quaternion.identity);
     }
 }
