@@ -12,6 +12,6 @@ public class PlayerSpawner : SimulationBehaviour, ISpawned
 
     private void SpawnPlayer(PlayerRef player)
     {
-        Runner.Spawn(_playerPrefab, new Vector3(player.PlayerId, 0, 0), Quaternion.identity, player);
+        Runner.Spawn(_playerPrefab, new Vector3(-5 + 10 * player.PlayerId, 0, 0), Quaternion.identity, player);
     }
 }
