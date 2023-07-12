@@ -23,7 +23,8 @@ public class StartMenu : MonoBehaviour
         var startGameArgs = new StartGameArgs
         {
             GameMode = GameMode.Shared,
-            SessionName = _roomName.text
+            SessionName = _roomName.text,
+            SceneManager = _runnerInstance.GetComponent<NetworkSceneManagerDefault>()
         };
         await _runnerInstance.StartGame(startGameArgs);
     }
