@@ -41,6 +41,9 @@ public class PlayerHandler : NetworkBehaviour
 
     private static void HealthChanged(Changed<PlayerHandler> changed)
     {
-        UiAccess.Get.SetHealth(changed.Behaviour.Health);
+        if (changed.Behaviour.Object.HasInputAuthority)
+        {
+            UiAccess.Get.SetHealth(changed.Behaviour.Health);
+        }
     }
 }
