@@ -9,8 +9,6 @@ public class LocalInput : MonoBehaviour, INetworkRunnerCallbacks
 {
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
     {
-        Debug.LogWarning(player.PlayerId);
-        
         if (runner.ActivePlayers.Count() > 1)
         {
             runner.SetActiveScene("Game");   
