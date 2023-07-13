@@ -11,7 +11,7 @@ public class CoinHandler : NetworkBehaviour
         }
 
         var playerHandler = other.gameObject.GetComponent<PlayerHandler>();
-        if (playerHandler != null && Object.HasInputAuthority)
+        if (playerHandler != null && Object.HasStateAuthority)
         {
             playerHandler.RPC_CollectCoin();
         }
