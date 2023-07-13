@@ -5,13 +5,10 @@ public class PlayerHandler : NetworkBehaviour
     [Networked(OnChanged = nameof(CollectedCoinsChanged))]
     public int CollectedCoins { get; set; }
 
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     public void RPC_CollectCoin()
     {
-        if (Object.HasStateAuthority)
-        {
-            ++CollectedCoins;
-        }
+        ++CollectedCoins;
     }
 
     private static void CollectedCoinsChanged(Changed<PlayerHandler> changed)
