@@ -42,6 +42,7 @@ namespace Player
                 var bullet = Runner.Spawn(_bulletPrefab, _gunPosition.position, Quaternion.identity, Object.InputAuthority);
                 var handler = bullet.GetComponent<BulletHandler>();
                 handler.Direction = ((Vector2)_gunPosition.position - _rigidBody.position).normalized;
+                handler.Originator = Object.InputAuthority;
                 FireCooldown = TickTimer.CreateFromSeconds(Runner, _shotDelay);
             }
         }

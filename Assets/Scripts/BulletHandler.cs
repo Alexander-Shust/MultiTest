@@ -4,7 +4,8 @@ using UnityEngine;
 public class BulletHandler : NetworkBehaviour
 {
     [SerializeField] private float _lifeTime = 3.0f;
-    [SerializeField] private float _speed = 200.0f;
+    [SerializeField] private float _speed = 10.0f;
+    [SerializeField] private float _damage = 30.0f;
     
     private TickTimer TimeLeft { get; set; }
 
@@ -44,12 +45,18 @@ public class BulletHandler : NetworkBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.gameObject.CompareTag("Player") || other.GetComponent<PlayerHandler>().PlayerRef == Originator)
+        if (!other.gameObject.CompareTag("Player"))
         {
             return;
         }
         
-        Debug.LogWarning("Player hit!");
+        var playerHandler = other.gameObject.GetComponent<PlayerHandler>();
+        if (playerHandler.PlayerRef == Originator)
+        {
+            return;
+        }
+        
+        playerHandler.RPC_TakeDamage(_damage);
         Runner.Despawn(Object);
     }
 }
