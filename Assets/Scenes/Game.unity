@@ -1195,9 +1195,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coins: {fileID: 1147122052}
   _healthBar: {fileID: 64979714}
-  _victoryPanel: {fileID: 0}
-  _winner: {fileID: 0}
-  _runnerUp: {fileID: 0}
+  _victoryPanel: {fileID: 882571385}
+  _winner: {fileID: 1135949906}
+  _runnerUp: {fileID: 653019492}
 --- !u!1 &800379354
 GameObject:
   m_ObjectHideFlags: 0
