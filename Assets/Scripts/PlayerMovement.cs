@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerMovement : NetworkBehaviour
 {
     [SerializeField] private float _movementSpeed = 20.0f;
-    [SerializeField] private float _rotationSpeed = 90.0f;
+    [SerializeField] private float _maxSpeed = 10.0f;
 
     private Rigidbody2D _rigidBody;
 
@@ -24,33 +24,41 @@ public class PlayerMovement : NetworkBehaviour
         {
             return;
         }
+
+        var direction = Vector2.zero;
+        var newAngle = _rigidBody.rotation;
         
         if (InputManager.IsUp)
         {
-            var force = Vector2.up * _movementSpeed * Runner.DeltaTime;
-            _rigidBody.AddForce(force);
+            direction = Vector2.up;
+            newAngle = 0.0f;
             InputManager.IsUp = false;
         }
-
         if (InputManager.IsDown)
         {
-            var force = Vector2.down * _movementSpeed * Runner.DeltaTime;
-            _rigidBody.AddForce(force);
+            direction = Vector2.down;
+            newAngle = 180.0f;
             InputManager.IsDown = false;
         }
-        
         if (InputManager.IsLeft)
         {
-            var force = Vector2.left * _movementSpeed * Runner.DeltaTime;
-            _rigidBody.AddForce(force);
+            direction = Vector2.left;
+            newAngle = 90.0f;
             InputManager.IsLeft = false;
         }
-
         if (InputManager.IsRight)
         {
-            var force = Vector2.right * _movementSpeed * Runner.DeltaTime;
-            _rigidBody.AddForce(force);
+            direction = Vector2.right;
+            newAngle = -90.0f;
             InputManager.IsRight = false;
+        }
+
+        _rigidBody.MoveRotation(newAngle);
+        _rigidBody.AddForce(direction * _movementSpeed * Runner.DeltaTime);
+
+        if (_rigidBody.velocity.magnitude > _maxSpeed)
+        {
+            _rigidBody.velocity = _rigidBody.velocity.normalized * _maxSpeed;
         }
     }
 }
