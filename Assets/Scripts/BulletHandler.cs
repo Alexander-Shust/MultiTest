@@ -12,6 +12,9 @@ public class BulletHandler : NetworkBehaviour
     
     [Networked]
     public Vector2 Direction { get; set; }
+    
+    [Networked]
+    public PlayerRef Originator { get; set; }
 
     public override void Spawned()
     {
@@ -37,5 +40,16 @@ public class BulletHandler : NetworkBehaviour
         {
             Runner.Despawn(Object);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.gameObject.CompareTag("Player") || other.GetComponent<PlayerHandler>().PlayerRef == Originator)
+        {
+            return;
+        }
+        
+        Debug.LogWarning("Player hit!");
+        Runner.Despawn(Object);
     }
 }

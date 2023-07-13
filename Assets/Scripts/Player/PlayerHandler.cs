@@ -2,6 +2,9 @@
 
 public class PlayerHandler : NetworkBehaviour
 {
+    [Networked]
+    public PlayerRef PlayerRef { get; set; }
+
     [Networked(OnChanged = nameof(CollectedCoinsChanged))]
     public int CollectedCoins { get; set; }
 

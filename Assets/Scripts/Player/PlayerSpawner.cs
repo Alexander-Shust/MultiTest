@@ -14,5 +14,6 @@ public class PlayerSpawner : SimulationBehaviour, ISpawned
     {
         var playerObject = Runner.Spawn(_playerPrefab, new Vector3(-5 + 10 * player.PlayerId, 0, 0), Quaternion.identity, player);
         playerObject.GetComponent<Renderer>().material.color = player == Runner.LocalPlayer ? Color.red : Color.white;
+        playerObject.GetComponent<PlayerHandler>().PlayerRef = player;
     }
 }
