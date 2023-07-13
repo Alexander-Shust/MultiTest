@@ -62,7 +62,7 @@ public class UiAccess : MonoBehaviour
             var winner = players.First(p => !_deadPlayers.Contains(p.PlayerRef));
             var winnerCoins = players.First(p => p == winner).CollectedCoins;
             _victoryPanel.SetActive(true);
-            _winner.text = $"The winner is: {winner} ({winnerCoins} coins)";
+            _winner.text = $"The winner is: {winner.PlayerRef} ({winnerCoins} coins)";
             var runnersUp = string.Empty;
             foreach (var dead in _deadPlayers)
             {
