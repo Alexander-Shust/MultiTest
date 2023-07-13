@@ -1,5 +1,4 @@
 ﻿using Fusion;
-using UnityEngine;
 
 public class PlayerHandler : NetworkBehaviour
 {
@@ -21,7 +20,15 @@ public class PlayerHandler : NetworkBehaviour
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
     public void RPC_TakeDamage(float amount)
     {
-        Health -= amount;
+        if (amount >= Health)
+        {
+            Health = 0.0f;
+            Runner.Despawn(Object);
+        }
+        else
+        {
+            Health -= amount;   
+        }
     }
 
     private static void CollectedCoinsChanged(Changed<PlayerHandler> changed)
@@ -34,6 +41,6 @@ public class PlayerHandler : NetworkBehaviour
 
     private static void HealthChanged(Changed<PlayerHandler> changed)
     {
-        Debug.LogWarning($"Health left: {changed.Behaviour.Health}");
+        UiAccess.Get.SetHealth(changed.Behaviour.Health);
     }
 }
