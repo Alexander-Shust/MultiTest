@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4565172792281438749}
   - component: {fileID: 4565172792281438736}
   - component: {fileID: 4565172792281438737}
+  - component: {fileID: 9170953674091395507}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -125,7 +126,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.45
 --- !u!114 &4565172792281438736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +150,7 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 4565172792281438737}
+  - {fileID: 9170953674091395507}
   SimulationBehaviours: []
 --- !u!114 &4565172792281438737
 MonoBehaviour:
@@ -178,6 +180,19 @@ MonoBehaviour:
     RotTeleportRadians: 1.5
   UseLegacySharedModeInterpolation: 0
   TargetInterpolationDelay: 0.03
+--- !u!114 &9170953674091395507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4565172792281438746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbebeddfcdab465e9aa67fe86aac7ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
 --- !u!1 &4565172793771917081
 GameObject:
   m_ObjectHideFlags: 0
