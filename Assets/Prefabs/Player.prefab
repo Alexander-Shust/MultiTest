@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2263170559231099290}
   - component: {fileID: 5609615096709134332}
   - component: {fileID: 4885500637094568047}
+  - component: {fileID: 2866101656390847644}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -154,6 +155,7 @@ MonoBehaviour:
   - {fileID: 2263170559231099290}
   - {fileID: 5609615096709134332}
   - {fileID: 4885500637094568047}
+  - {fileID: 2866101656390847644}
   SimulationBehaviours: []
 --- !u!114 &2263170559231099290
 MonoBehaviour:
@@ -212,6 +214,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   _CollectedCoins: 0
+--- !u!114 &2866101656390847644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2263170559231099280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8bb43fb49d425088f5fc9a43717f2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  _shotDelay: 0.3
+  _bulletPrefab: {fileID: 4565172792281438746, guid: f65f2ea25bf46f64baeed59b7b31b5b5, type: 3}
 --- !u!1 &2263170559992278146
 GameObject:
   m_ObjectHideFlags: 0

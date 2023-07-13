@@ -26,6 +26,9 @@ public class ButtonHandler : MonoBehaviour, IUpdateSelectedHandler, IPointerUpHa
                 case ButtonType.Right:
                     InputManager.IsRight = true;
                     break;
+                case ButtonType.Fire:
+                    InputManager.IsFire = true;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -47,6 +50,7 @@ public class ButtonHandler : MonoBehaviour, IUpdateSelectedHandler, IPointerUpHa
         Up,
         Down,
         Left,
-        Right
+        Right,
+        Fire
     }
 }
