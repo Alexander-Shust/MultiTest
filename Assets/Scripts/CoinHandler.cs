@@ -5,7 +5,7 @@ public class CoinHandler : NetworkBehaviour
 {
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (!other.gameObject.CompareTag("Player") || !Object.HasStateAuthority)
+        if (!other.gameObject.CompareTag("Player"))
         {
             return;
         }
