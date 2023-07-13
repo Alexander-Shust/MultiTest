@@ -9,7 +9,7 @@ public class LocalInput : MonoBehaviour, INetworkRunnerCallbacks
 {
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
     {
-        if (runner.ActivePlayers.Count() > 1)
+        if (runner.ActivePlayers.Count() >= 2)
         {
             runner.SetActiveScene("Game");   
         }

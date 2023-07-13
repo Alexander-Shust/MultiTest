@@ -23,6 +23,7 @@ public class PlayerHandler : NetworkBehaviour
         if (amount >= Health)
         {
             Health = 0.0f;
+            UiAccess.Get.AddResult(PlayerRef, CollectedCoins);
             Runner.Despawn(Object);
         }
         else
