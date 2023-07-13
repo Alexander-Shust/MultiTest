@@ -13,6 +13,9 @@ public class PlayerHandler : NetworkBehaviour
 
     private static void CollectedCoinsChanged(Changed<PlayerHandler> changed)
     {
-        UiAccess.Get.SetCoins(changed.Behaviour.CollectedCoins);
+        if (changed.Behaviour.Object.HasStateAuthority)
+        {
+            UiAccess.Get.SetCoins(changed.Behaviour.CollectedCoins);
+        }
     }
 }
