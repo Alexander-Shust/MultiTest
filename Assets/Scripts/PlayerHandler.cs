@@ -8,7 +8,7 @@ public class PlayerHandler : NetworkBehaviour
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
     public void RPC_CollectCoin()
     {
-        if (Object.HasInputAuthority)
+        if (Object.HasStateAuthority)
         {
             ++CollectedCoins;
         }
