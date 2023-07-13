@@ -7,6 +7,7 @@ namespace Player
     {
         [SerializeField] private float _shotDelay = 0.3f;
         [SerializeField] private GameObject _bulletPrefab;
+        [SerializeField] private Transform _gunPosition;
 
         private Rigidbody2D _rigidBody;
         
@@ -38,8 +39,9 @@ namespace Player
                     return;
                 }
 
-                var bullet = Runner.Spawn(_bulletPrefab, _rigidBody.position, Quaternion.identity, Object.InputAuthority);
-                bullet.transform.Rotate(0, 0, _rigidBody.rotation);
+                var bullet = Runner.Spawn(_bulletPrefab, _gunPosition.position, Quaternion.identity, Object.InputAuthority);
+                var handler = bullet.GetComponent<BulletHandler>();
+                handler.Direction = ((Vector2)_gunPosition.position - _rigidBody.position).normalized;
                 FireCooldown = TickTimer.CreateFromSeconds(Runner, _shotDelay);
             }
         }

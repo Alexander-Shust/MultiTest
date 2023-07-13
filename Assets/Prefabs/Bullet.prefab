@@ -195,6 +195,7 @@ MonoBehaviour:
   _interpolationDataSource: 0
   _lifeTime: 3
   _speed: 10
+  _Direction: {x: 0, y: 0}
 --- !u!1 &4565172793771917081
 GameObject:
   m_ObjectHideFlags: 0

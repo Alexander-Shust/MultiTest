@@ -11,7 +11,7 @@ public class BulletHandler : NetworkBehaviour
     private Rigidbody2D _rigidBody;
     
     [Networked]
-    private Vector2 Direction { get; set; }
+    public Vector2 Direction { get; set; }
 
     public override void Spawned()
     {
@@ -22,7 +22,6 @@ public class BulletHandler : NetworkBehaviour
         
         _rigidBody = GetComponent<Rigidbody2D>();
         TimeLeft = TickTimer.CreateFromSeconds(Runner, _lifeTime);
-        Direction = transform.up;
     }
 
     public override void FixedUpdateNetwork()

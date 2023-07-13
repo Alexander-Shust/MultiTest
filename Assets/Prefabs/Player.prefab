@@ -229,6 +229,7 @@ MonoBehaviour:
   _interpolationDataSource: 0
   _shotDelay: 0.3
   _bulletPrefab: {fileID: 4565172792281438746, guid: f65f2ea25bf46f64baeed59b7b31b5b5, type: 3}
+  _gunPosition: {fileID: 1526734292301360318}
 --- !u!1 &2263170559992278146
 GameObject:
   m_ObjectHideFlags: 0
