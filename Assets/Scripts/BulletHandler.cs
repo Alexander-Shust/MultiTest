@@ -7,6 +7,8 @@ public class BulletHandler : NetworkBehaviour
     [SerializeField] private float _speed = 200.0f;
     
     private TickTimer TimeLeft { get; set; }
+
+    private Rigidbody2D _rigidBody;
     
     [Networked]
     private Vector2 Direction { get; set; }
@@ -18,6 +20,7 @@ public class BulletHandler : NetworkBehaviour
             return;
         }
         
+        _rigidBody = GetComponent<Rigidbody2D>();
         TimeLeft = TickTimer.CreateFromSeconds(Runner, _lifeTime);
         Direction = transform.forward;
     }
@@ -29,7 +32,7 @@ public class BulletHandler : NetworkBehaviour
             return;
         }
         
-        transform.Translate(Direction * _speed * Runner.DeltaTime, Space.World);
+        _rigidBody.MovePosition(_rigidBody.position + Direction * _speed * Runner.DeltaTime);
 
         if (TimeLeft.Expired(Runner))
         {
