@@ -17,7 +17,7 @@ public class PlayerHandler : NetworkBehaviour
         ++CollectedCoins;
     }
 
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     public void RPC_TakeDamage(float amount)
     {
         if (amount >= Health)
