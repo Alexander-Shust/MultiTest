@@ -3,6 +3,7 @@ using System.Linq;
 using Fusion;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UiAccess : MonoBehaviour
@@ -10,7 +11,13 @@ public class UiAccess : MonoBehaviour
     [SerializeField] private TMP_Text _coins;
 
     [SerializeField] private Image _healthBar;
-    
+
+    [SerializeField] private GameObject _victoryPanel;
+
+    [SerializeField] private TMP_Text _winner;
+
+    [SerializeField] private TMP_Text _runnerUp;
+
     public static UiAccess Get;
 
     private List<GameResult> _results;
@@ -19,6 +26,7 @@ public class UiAccess : MonoBehaviour
 
     private void Awake()
     {
+        _victoryPanel.SetActive(false);
         _results = new();
         _deadPlayers = new();
         Get = this;
@@ -53,13 +61,22 @@ public class UiAccess : MonoBehaviour
         {
             var winner = players.First(p => !_deadPlayers.Contains(p.PlayerRef));
             var winnerCoins = players.First(p => p == winner).CollectedCoins;
-            ShowVictory(winner.PlayerRef, winnerCoins);
+            _victoryPanel.SetActive(true);
+            _winner.text = $"The winner is: {winner} ({winnerCoins} coins)";
+            var runnersUp = string.Empty;
+            foreach (var dead in _deadPlayers)
+            {
+                var deadCoins = players.First(p => p.PlayerRef == dead).CollectedCoins;
+                runnersUp += $"{dead} ({deadCoins})  ";
+            }
+
+            _runnerUp.text = "Dead: " + runnersUp;
         }
     }
 
-    private void ShowVictory(PlayerRef winner, int winnerCoins)
+    public void RestartGame()
     {
-        Debug.LogWarning($"Winner is {winner} with {winnerCoins} coins!");
+        SceneManager.LoadScene("Lobby");
     }
 
     public struct GameResult
