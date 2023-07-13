@@ -22,7 +22,7 @@ public class BulletHandler : NetworkBehaviour
         
         _rigidBody = GetComponent<Rigidbody2D>();
         TimeLeft = TickTimer.CreateFromSeconds(Runner, _lifeTime);
-        Direction = transform.forward;
+        Direction = transform.up;
     }
 
     public override void FixedUpdateNetwork()

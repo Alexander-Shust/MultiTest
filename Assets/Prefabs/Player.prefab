@@ -198,8 +198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  _movementSpeed: 30
-  _maxSpeed: 3
+  _movementSpeed: 50
+  _maxSpeed: 5
 --- !u!114 &4885500637094568047
 MonoBehaviour:
   m_ObjectHideFlags: 0
